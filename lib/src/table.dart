@@ -6,9 +6,17 @@ class Table {
   Table();
 
   final TableInternal _table = TableInternal();
+  final List<Type> _supportedTypes = List.unmodifiable([String, Table]);
+
   int _rows = 0, _cols = 0;
 
+  bool _isNotValidCellType(List<Object> cells) {
+    bool isNotSupportType(e) => !_supportedTypes.contains(e.runtimeType);
+    return cells.any(isNotSupportType);
+  }
+
   Table addRow(List<Object> cells) {
+    if (_isNotValidCellType(cells)) throw Exception("Unsupported type used supported types are only $_supportedTypes");
     if (_rows == 0) _cols = cells.length;
     final List<String> cellStrings = List.filled(cells.length < _cols ? _cols : cells.length, "");
 
