@@ -1,14 +1,16 @@
+import 'package:tabulate/src/theme/theme.dart';
 import 'package:tabulate/tabulate.dart';
 
 class TableInternal {
   TableInternal();
 
   final List<Row> _rows = [];
+  final TableTheme _theme = TableTheme()..setDefaults();
 
   void addRow(List<String> cellsContent) {
-    Row row = Row();
+    Row row = Row(parent: this);
     for (String content in cellsContent) {
-      Cell cell = Cell(data: content);
+      Cell cell = Cell(data: content, parent: row);
       row.addCell(cell);
     }
     _rows.add(row);
@@ -26,6 +28,8 @@ class TableInternal {
   Row rowAt(int index) => _rows[index];
 
   int get length => _rows.length;
+
+  TableTheme get theme => _theme;
 
   List<Row> get rows => _rows;
 

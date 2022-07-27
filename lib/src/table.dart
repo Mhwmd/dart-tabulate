@@ -1,3 +1,4 @@
+import 'package:tabulate/src/theme/theme.dart';
 import 'package:tabulate/tabulate.dart';
 
 import 'table_internal.dart';
@@ -41,6 +42,8 @@ class Table extends Iterable<Row> {
   Row rowAt(int index) => _table.rowAt(index);
 
   List<Row> get rows => _table.rows;
+
+  TableTheme get theme => _table.theme;
 
   Row operator [](int index) => rowAt(index);
 
