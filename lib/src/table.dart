@@ -2,7 +2,7 @@ import 'package:tabulate/tabulate.dart';
 
 import 'table_internal.dart';
 
-class Table {
+class Table extends Iterable<Row> {
   Table();
 
   final TableInternal _table = TableInternal();
@@ -43,4 +43,7 @@ class Table {
   List<Row> get rows => _table.rows;
 
   Row operator [](int index) => rowAt(index);
+
+  @override
+  Iterator<Row> get iterator => _table.rows.iterator;
 }

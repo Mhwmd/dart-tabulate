@@ -1,6 +1,6 @@
 import 'package:tabulate/tabulate.dart';
 
-class Column {
+class Column extends Iterable<Cell> {
   Column();
 
   final List<Cell> _cells = [];
@@ -9,9 +9,10 @@ class Column {
 
   Cell cellAt(int index) => _cells[index];
 
-  int get length => _cells.length;
-
   List<Cell> get cells => _cells;
 
   Cell operator [](int index) => cellAt(index);
+
+  @override
+  Iterator<Cell> get iterator => _cells.iterator;
 }
