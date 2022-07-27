@@ -12,4 +12,6 @@ class Column {
   int get length => _cells.length;
 
   List<Cell> get cells => _cells;
+
+  Cell operator [](int index) => cellAt(index);
 }

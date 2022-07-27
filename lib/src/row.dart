@@ -12,4 +12,6 @@ class Row {
   List<Cell> get cells => _cells;
 
   int get length => _cells.length;
+
+  Cell operator [](int index) => cellAt(index);
 }

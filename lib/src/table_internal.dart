@@ -28,4 +28,6 @@ class TableInternal {
   int get length => _rows.length;
 
   List<Row> get rows => _rows;
+
+  Row operator [](int index) => rowAt(index);
 }

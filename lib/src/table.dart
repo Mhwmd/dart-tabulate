@@ -41,4 +41,6 @@ class Table {
   Row rowAt(int index) => _table.rowAt(index);
 
   List<Row> get rows => _table.rows;
+
+  Row operator [](int index) => rowAt(index);
 }
