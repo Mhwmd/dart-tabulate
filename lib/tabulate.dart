@@ -2,4 +2,4 @@
 
 library tabulate;
 
-export 'src/term_color.dart';
+export 'src/term_color/term_color.dart';
