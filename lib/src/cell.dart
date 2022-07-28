@@ -1,8 +1,6 @@
 import 'package:characters/characters.dart';
 import 'package:tabulate/tabulate.dart';
 
-import 'theme/theme.dart';
-
 class Cell {
   Cell({required Row parent, String? data})
       : _parent = parent,

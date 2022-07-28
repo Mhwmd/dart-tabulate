@@ -1,4 +1,3 @@
-import 'package:tabulate/src/theme/theme.dart';
 import 'package:tabulate/tabulate.dart';
 
 import 'table_internal.dart';
@@ -47,6 +46,17 @@ class Table extends Iterable<Row> {
 
   Row operator [](int index) => rowAt(index);
 
+  void render(StringBuffer stringBuffer) => _table.render(stringBuffer);
+
+  Pair<int, int> shape() => _table.shape();
+
   @override
   Iterator<Row> get iterator => _table.rows.iterator;
+
+  @override
+  String toString() {
+    StringBuffer stringBuffer = StringBuffer();
+    render(stringBuffer);
+    return stringBuffer.toString();
+  }
 }

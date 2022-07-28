@@ -1,7 +1,5 @@
 import 'package:tabulate/tabulate.dart';
 
-import 'theme.dart';
-
 class ColumnFormat extends TableTheme {
   ColumnFormat(Column column) : _column = column;
 
@@ -243,9 +241,9 @@ class ColumnFormat extends TableTheme {
   }
 
   @override
-  ColumnFormat setFontStyle(Set<FontStyle> style) {
+  ColumnFormat setFontStyle(Set<FontStyle> styles) {
     for (var cell in _column.cells) {
-      cell.theme.setFontStyle(style);
+      cell.theme.setFontStyle(styles);
     }
     return this;
   }

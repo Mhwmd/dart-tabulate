@@ -1,5 +1,8 @@
-import 'package:tabulate/src/theme/theme.dart';
+import 'package:characters/characters.dart';
 import 'package:tabulate/tabulate.dart';
+
+import 'printer.dart';
+import 'utils.dart';
 
 class TableInternal {
   TableInternal();
@@ -34,4 +37,27 @@ class TableInternal {
   List<Row> get rows => _rows;
 
   Row operator [](int index) => rowAt(index);
+
+  void render(StringBuffer stringBuffer) => Printer.renderTable(stringBuffer, this);
+
+  Pair<int, int> shape() {
+    Pair<int, int> result = Pair(0, 0);
+    StringBuffer stringBuffer = StringBuffer();
+    render(stringBuffer);
+    String buffer = stringBuffer.toString();
+    List<String> lines = splitLines(buffer, "\n");
+    if (lines.isNotEmpty) {
+      result = Pair(lines[0].characters.length, lines.length);
+    }
+    return result;
+  }
+
+  int estimateNumColumns() {
+    int result = 0;
+    if (length > 0) {
+      var firstRow = rowAt(0);
+      result = firstRow.length;
+    }
+    return result;
+  }
 }
