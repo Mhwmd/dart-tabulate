@@ -1,4 +1,3 @@
-CLI Table 
-=========
-
-This utility allows you to render beautiful high customizable ascii table formats in Dart.
+<p align="center">
+  <img height="50" src="image/logo.jpg" title="dart-tabulate" alt="tabulate logo"/>  
+</p>
