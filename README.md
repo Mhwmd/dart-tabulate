@@ -24,7 +24,7 @@
 
 ## Description
 
-`tabulate` help those who want to create beautiful and high customizable tables in the terminal easly.
+`tabulate` help those who want to create beautiful and high customizable tables in the terminal easily.
 
 **NOTE** Tabulate supports Dart `>=2.17.5`.
 
@@ -75,7 +75,7 @@ By the above code you can see that all of the cells in first column is aligned t
 
 Now what about to change properties of specfic cell in specfic row or column?
 
-You can easly use Dart index operators to access specfic cell from a row by using `Table[rowIndex][colIndex]` or from a column by using `Table.columnAt(colIndex)[cellIndex]`.
+You can easily stylizing use Dart index operators to access specfic cell from a row by using `Table[rowIndex][colIndex]` or from a column by using `Table.columnAt(colIndex)[cellIndex]`.
 
 We want to change properties of cell `Founder FaceBook` in index row `4` and column `2`. So just use `table[4][2]` to change font color to `grey` with font background `red` and font style `crossed`.
 
