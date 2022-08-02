@@ -41,3 +41,12 @@ void main() {
   table.addRow(["4", "Mark Zuckeberg", "Founder Facebook", "\$1300"]);
 }
 ```
+
+You can style a table by using the `Table.theme` getter which returns a `TableTheme` object then you are able to change properties of the table, e.g., borders, text styles, colors etc.
+
+```dart
+  table.theme.setBorderColor(Color.red)
+    .setFontColor(Color.white)
+    .setTextStyle({TextStyle.bold});
+```
+
