@@ -57,7 +57,7 @@ You can style a table by using the `Table.theme` getter which returns a `TableTh
 ```dart
   table.theme
     .setBorderColor(Color.red)
-.setFontColor(Color.cyan);
+    .setFontColor(Color.cyan);
 ```
 
 You can access rows in the table using `Table[rowIndex]` or `Table.rowAt(rowIndex)`. This will return a `Row` object on which you can similarly use getter `Row.theme` to stylize properties of all the cells in that row.
@@ -67,11 +67,11 @@ Now, let's stylize the header of the table. The code below will change font colo
 ```dart
    table[0].theme
     .setFontColor(Color.blue)
-.setTextAlign(TextAlign.center)
-.setFontStyle({FontStyle.bold})
+    .setTextAlign(TextAlign.center)
+    .setFontStyle({FontStyle.bold})
     .setBorderTop("=")
-.setPaddingTop(1)
-.setPaddingBottom(1);
+    .setPaddingTop(1)
+    .setPaddingBottom(1);
 ```
 
 Also you can access columns in the table by using `Table.columnAt(columnIndex)`. This will return a `Column` object which you can use the getter `Column.theme` to stylize properties all of the cells of the column.
@@ -94,16 +94,16 @@ We want to change properties of cell `Founder FaceBook` in index row `4` and col
 ```dart
    table[4][2].theme
     .setFontColor(Color.grey)
-.setFontBackground(Color.red)
-.setFontStyle({FontStyle.crossed});
+    .setFontBackground(Color.red)
+    .setFontStyle({FontStyle.crossed});
 ```
 `tabulate` is using Dart `StringBuffer` class for render tables. There is two ways of render tables one way is `StringBuffer` another way is just using Dart built-in `print` function to print the `Table` object.
 
 print using `StringBuffer`:
 ```dart
    StringBuffer stringBuffer = StringBuffer();
-table.render(stringBuffer);
-print(stringBuffer);
+   table.render(stringBuffer);
+   print(stringBuffer);
 ```
 
 **NOTE 1** `tabulate` use `TermColor` class for stylizing and colorizing fonts. In this class there is an property called `isAnsiColorDisabled` this property will globally `disables` or `enables` **ANSI escapes**. When environment doesn't support ANSI escapes `default` is set to `true` and ANSI escapes will not added into the table!. But can be overridden to force ANSI escapes adds to the table.
