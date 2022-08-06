@@ -5,6 +5,25 @@ import 'src/supports_ansi.dart'
 class TermColor {
   TermColor._privateConstructor();
 
+  static List<String> get colorPrimaries => List.unmodifiable([
+        grey,
+        red,
+        green,
+        yellow,
+        blue,
+        magenta,
+        cyan,
+        white,
+        brightRed,
+        brightGreen,
+        brightCyan,
+        brightMagenta,
+        brightBlue,
+        brightYellow,
+        brightGrey,
+        brightWhite,
+      ]);
+
   /// Globally turn off or on ANSI escapes.
   /// Note: When environment doesn't support ANSI escapes default is false but can be overridden.
   /// On some IDEs default is false an you must override it to true
@@ -14,6 +33,8 @@ class TermColor {
   static String get ansiEscape => "\u{1B}[";
 
   static String buildTerm(int code) => isAnsiColorDisabled ? "" : "$ansiEscape${code}m";
+
+  static String colorize(String color, String text) => isAnsiColorDisabled ? text : "$color$text$reset}";
 
   /// Reset all colors and options to terminal defaults.
   static String get reset => buildTerm(0);

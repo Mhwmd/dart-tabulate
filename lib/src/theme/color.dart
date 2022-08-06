@@ -9,7 +9,15 @@ enum Color {
   blue,
   magenta,
   cyan,
-  white;
+  white,
+  brightRed,
+  brightGreen,
+  brightCyan,
+  brightMagenta,
+  brightBlue,
+  brightYellow,
+  brightGrey,
+  brightWhite;
 
   /// return ANSI color according to enum value.
   String apply({bool isBackground = false}) {
@@ -23,6 +31,14 @@ enum Color {
       Color.magenta: Pair(TermColor.magenta, TermColor.magentaBG),
       Color.cyan: Pair(TermColor.cyan, TermColor.cyanBG),
       Color.white: Pair(TermColor.white, TermColor.whiteBG),
+      Color.brightRed: Pair(TermColor.brightRed, TermColor.brightRedBG),
+      Color.brightGreen: Pair(TermColor.brightGreen, TermColor.brightGreenBG),
+      Color.brightCyan: Pair(TermColor.brightCyan, TermColor.brightCyanBG),
+      Color.brightMagenta: Pair(TermColor.brightMagenta, TermColor.brightMagentaBG),
+      Color.brightBlue: Pair(TermColor.brightBlue, TermColor.brightBlueBG),
+      Color.brightYellow: Pair(TermColor.brightYellow, TermColor.brightYellowBG),
+      Color.brightGrey: Pair(TermColor.brightGrey, TermColor.brightGreyBG),
+      Color.brightWhite: Pair(TermColor.brightWhite, TermColor.brightWhiteBG),
     };
 
     String getAnsiColor(Pair<String, String> color) => !isBackground ? color.first : color.second;
