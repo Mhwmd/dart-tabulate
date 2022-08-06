@@ -24,7 +24,7 @@
 *   [Styling Options](#styling-options)
     *   [Style Inheritance Model](#style-inheritance-model)
     *   [Word Wrapping](#word-wrapping)
-    *   [Font Alignment](#font-alignment)
+    *   [Text Alignment](#text-alignment)
     *   [Font Styles](#font-styles)
     *   [Cell Colors](#cell-colors)
     *   [Borders and Corners](#borders-and-corners)
@@ -57,7 +57,7 @@ You can style a table by using the `Table.theme` getter which returns a `TableTh
 ```dart
   table.theme
     .setBorderColor(Color.red)
-    .setFontColor(Color.cyan);
+.setFontColor(Color.cyan);
 ```
 
 You can access rows in the table using `Table[rowIndex]` or `Table.rowAt(rowIndex)`. This will return a `Row` object on which you can similarly use getter `Row.theme` to stylize properties of all the cells in that row.
@@ -164,4 +164,83 @@ void main() {
 
 <p align="center">
   <img src="image/word_wrapping.jpg"/>  
+</p>
+
+### Text Alignment
+
+`tabulate` supports text alignment. Supported alignments are `left`, `right` and `center`. Changing cells alignment is possible with method `.theme.setTextAlign(alignment)`.
+
+**NOTE:** Default text alignment is `left`.
+
+```dart
+import 'package:tabulate/tabulate.dart';
+
+void main() {
+  TermColor.isAnsiColorDisabled = false;
+  Table productTable = Table();
+
+  productTable.addRow(["#", "Product Name", "Qty", "Price"]);
+
+  productTable.addRow(["1", "TV", "4", "45,000"]);
+  productTable.addRow(["2", "Mobile", "35", "32,000"]);
+  productTable.addRow(["3", "Laptop", "12", "90,000"]);
+  productTable.addRow(["4", "Keyboard", "3", "3,300"]);
+  productTable.addRow(["5", "Shing Mach", "1", "18,500"]);
+
+  productTable.columnAt(0).theme.setTextAlign(TextAlign.center);
+  productTable.columnAt(3).theme.setWidth(15).setTextAlign(TextAlign.right);
+  productTable.columnAt(2).theme.setWidth(8).setTextAlign(TextAlign.center);
+
+  print(productTable);
+}
+```
+
+The above code aligns columns `#` and `Qty` to `center` and column `Price` to `right`.
+
+<p align="center">
+  <img src="image/text_alignment.jpg"/>  
+</p>
+
+### Font Styles
+
+`tabulate` supports many font styles such as `bold`, `dark`, `italic`, `underline`, `blink`, `reverse`, `concealed` and `crossed`.
+
+For setting font styles you should use method `.theme.setFontStyle(fontstyles)`. This method input type is `Set<FontStyle>` because you might need to apply some font styles combinations like **bold and italic**.
+
+**NOTE:** Depending on environment maybe some of the above font styles won't work perfectly.
+
+By the way in applying font style on cells we also use **style inheritance model** and merge font styles in parents with cells font style. e.g, you globally set table font style to `bold` and apply `crossed` font style to specific cells, you have cells with **bold and crossed** style.
+
+```dart
+import 'package:tabulate/tabulate.dart';
+
+void main() {
+  TermColor.isAnsiColorDisabled = false;
+
+  Table styledTable = Table();
+  styledTable.addRow(["Bold", "Italic", "Bold & Italic", "Blinking"]);
+  styledTable.addRow(["Underline", "Crossed", "Dark", "Bold, Italic & Underlined"]);
+
+  styledTable[0][0].theme.setFontStyle({FontStyle.bold});
+
+  styledTable[0][1].theme.setFontStyle({FontStyle.italic});
+
+  styledTable[0][2].theme.setFontStyle({FontStyle.bold, FontStyle.italic});
+
+  styledTable[0][3].theme.setFontStyle({FontStyle.blink});
+
+  styledTable[1][0].theme.setFontStyle({FontStyle.underline});
+
+  styledTable[1][1].theme.setFontStyle({FontStyle.crossed});
+
+  styledTable[1][2].theme.setFontStyle({FontStyle.dark});
+
+  styledTable[1][3].theme.setFontStyle({FontStyle.bold, FontStyle.italic, FontStyle.underline});
+
+  print(styledTable);
+}
+```
+
+<p align="center">
+  <img src="image/font_styles.jpg"/>  
 </p>
