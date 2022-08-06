@@ -5,6 +5,25 @@ import 'src/supports_ansi.dart'
 class TermColor {
   TermColor._privateConstructor();
 
+  static List<String> get colorPrimaries => List.unmodifiable([
+        grey,
+        red,
+        green,
+        yellow,
+        blue,
+        magenta,
+        cyan,
+        white,
+        brightRed,
+        brightGreen,
+        brightCyan,
+        brightMagenta,
+        brightBlue,
+        brightYellow,
+        brightGrey,
+        brightWhite,
+      ]);
+
   /// Globally turn off or on ANSI escapes.
   /// Note: When environment doesn't support ANSI escapes default is false but can be overridden.
   /// On some IDEs default is false an you must override it to true
