@@ -32,6 +32,7 @@ enum Color {
       Color.cyan: Pair(TermColor.cyan, TermColor.cyanBG),
       Color.white: Pair(TermColor.white, TermColor.whiteBG),
       Color.brightRed: Pair(TermColor.brightRed, TermColor.brightRedBG),
+      Color.brightGreen: Pair(TermColor.brightGreen, TermColor.brightGreenBG),
       Color.brightCyan: Pair(TermColor.brightCyan, TermColor.brightCyanBG),
       Color.brightMagenta: Pair(TermColor.brightMagenta, TermColor.brightMagentaBG),
       Color.brightBlue: Pair(TermColor.brightBlue, TermColor.brightBlueBG),

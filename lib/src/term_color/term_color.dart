@@ -34,6 +34,8 @@ class TermColor {
 
   static String buildTerm(int code) => isAnsiColorDisabled ? "" : "$ansiEscape${code}m";
 
+  static String colorize(String color, String text) => isAnsiColorDisabled ? text : "$color$text$reset}";
+
   /// Reset all colors and options to terminal defaults.
   static String get reset => buildTerm(0);
 
