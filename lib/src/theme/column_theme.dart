@@ -1,4 +1,4 @@
-import 'package:tabulate/tabulate.dart';
+import 'package:dart_tabulate/dart_tabulate.dart';
 
 class ColumnFormat extends TableTheme {
   ColumnFormat(Column column) : _column = column;
