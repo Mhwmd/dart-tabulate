@@ -1,4 +1,4 @@
-import 'package:tabulate/tabulate.dart';
+import 'package:dart_tabulate/tabulate.dart';
 
 void main() {
   TermColor.isAnsiColorDisabled = false;
