@@ -76,8 +76,9 @@ class Column extends Iterable<Cell> {
       // Find widest substring in input and use this as column_width
       int widestSubstringSize = 0;
       for (var line in splittedLines) {
-        if (line.characters.length > widestSubstringSize)
+        if (line.characters.length > widestSubstringSize) {
           widestSubstringSize = line.characters.length;
+        }
       }
       result += widestSubstringSize;
     }

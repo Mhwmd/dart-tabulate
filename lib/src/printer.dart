@@ -101,9 +101,9 @@ class Printer {
         }
       }
 
-      if (i + 1 < numRows)
-        stringBuffer
-            .writeln(TermColor.reset); // Don't add newline after last row
+      if (i + 1 < numRows) {
+        stringBuffer.writeln(TermColor.reset);
+      } // Don't add newline after last row
     }
   }
 
@@ -233,8 +233,9 @@ class Printer {
     var cornerBackgroundColor = theme.cornerTopLeftBackground!;
     var borderTop = theme.borderTop!;
 
-    if ((corner == "" && borderTop == "") || !theme.isShowBorderTop!)
+    if ((corner == "" && borderTop == "") || !theme.isShowBorderTop!) {
       return false;
+    }
 
     applyElementStyle(stringBuffer, cornerColor, cornerBackgroundColor, {});
     stringBuffer.write(corner);

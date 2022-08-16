@@ -46,8 +46,9 @@ enum Color {
     String getAnsiColor(Pair<String, String> color) =>
         !isBackground ? color.first : color.second;
 
-    if (!ansiColorPairs.containsKey(this))
+    if (!ansiColorPairs.containsKey(this)) {
       return getAnsiColor(ansiColorPairs[Color.none]!);
+    }
     return getAnsiColor(ansiColorPairs[this]!);
   }
 }
