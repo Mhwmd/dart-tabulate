@@ -1,6 +1,6 @@
 /// A predictable table maker library for [Dart](https://dart.dev).
 
-library tabulate;
+library dart_tabulate;
 
 export 'src/ansi_regex.dart';
 export 'src/cell.dart';

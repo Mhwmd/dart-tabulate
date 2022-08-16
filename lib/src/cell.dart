@@ -1,5 +1,5 @@
 import 'package:characters/characters.dart';
-import 'package:tabulate/tabulate.dart';
+import 'package:dart_tabulate/dart_tabulate.dart';
 
 class Cell {
   Cell({required Row parent, String? data})

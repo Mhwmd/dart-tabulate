@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:characters/characters.dart';
-import 'package:tabulate/tabulate.dart';
+import 'package:dart_tabulate/dart_tabulate.dart';
 
 import 'utils.dart';
 

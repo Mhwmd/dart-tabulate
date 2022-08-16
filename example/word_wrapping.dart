@@ -1,4 +1,4 @@
-import 'package:dart_tabulate/tabulate.dart';
+import 'package:dart_tabulate/dart_tabulate.dart';
 
 void main() {
   Table table = Table();

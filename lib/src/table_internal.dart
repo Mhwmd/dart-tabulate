@@ -1,5 +1,5 @@
 import 'package:characters/characters.dart';
-import 'package:tabulate/tabulate.dart';
+import 'package:dart_tabulate/dart_tabulate.dart';
 
 import 'printer.dart';
 import 'utils.dart';
