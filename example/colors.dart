@@ -42,8 +42,14 @@ void main() {
   colorPalette.rowAt(2).theme.setFontColor(Color.grey);
 
   for (int colorIndex = 0; colorIndex < 8; colorIndex++) {
-    colorPalette[1][colorIndex].theme.setFontBackground(colors[colorIndex].value).setHeight(3);
-    colorPalette[3][colorIndex].theme.setFontBackground(brightColors[colorIndex].value).setHeight(3);
+    colorPalette[1][colorIndex]
+        .theme
+        .setFontBackground(colors[colorIndex].value)
+        .setHeight(3);
+    colorPalette[3][colorIndex]
+        .theme
+        .setFontBackground(brightColors[colorIndex].value)
+        .setHeight(3);
   }
 
   Table colorsTable = Table();
@@ -56,6 +62,11 @@ void main() {
   colorsTable.addRow(["Color Palette"]);
   colorsTable.addRow([colorPalette]);
   colorsTable.addRow(["Dart tabulate made with ❤ by Mhwmd."]);
-  colorsTable.rowAt(2).theme.setFontBackground(Color.grey).setTextAlign(TextAlign.right).hideBorderBottom();
+  colorsTable
+      .rowAt(2)
+      .theme
+      .setFontBackground(Color.grey)
+      .setTextAlign(TextAlign.right)
+      .hideBorderBottom();
   print("$colorsTable");
 }

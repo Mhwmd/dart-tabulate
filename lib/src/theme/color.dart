@@ -34,16 +34,20 @@ enum Color {
       Color.brightRed: Pair(TermColor.brightRed, TermColor.brightRedBG),
       Color.brightGreen: Pair(TermColor.brightGreen, TermColor.brightGreenBG),
       Color.brightCyan: Pair(TermColor.brightCyan, TermColor.brightCyanBG),
-      Color.brightMagenta: Pair(TermColor.brightMagenta, TermColor.brightMagentaBG),
+      Color.brightMagenta:
+          Pair(TermColor.brightMagenta, TermColor.brightMagentaBG),
       Color.brightBlue: Pair(TermColor.brightBlue, TermColor.brightBlueBG),
-      Color.brightYellow: Pair(TermColor.brightYellow, TermColor.brightYellowBG),
+      Color.brightYellow:
+          Pair(TermColor.brightYellow, TermColor.brightYellowBG),
       Color.brightGrey: Pair(TermColor.brightGrey, TermColor.brightGreyBG),
       Color.brightWhite: Pair(TermColor.brightWhite, TermColor.brightWhiteBG),
     };
 
-    String getAnsiColor(Pair<String, String> color) => !isBackground ? color.first : color.second;
+    String getAnsiColor(Pair<String, String> color) =>
+        !isBackground ? color.first : color.second;
 
-    if (!ansiColorPairs.containsKey(this)) return getAnsiColor(ansiColorPairs[Color.none]!);
+    if (!ansiColorPairs.containsKey(this))
+      return getAnsiColor(ansiColorPairs[Color.none]!);
     return getAnsiColor(ansiColorPairs[this]!);
   }
 }

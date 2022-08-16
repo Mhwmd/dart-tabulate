@@ -25,7 +25,8 @@ enum FontStyle {
       FontStyle.crossed: TermColor.crossed,
     };
 
-    if (!ansiFontStyles.containsKey(this)) return ansiFontStyles[FontStyle.none]!;
+    if (!ansiFontStyles.containsKey(this))
+      return ansiFontStyles[FontStyle.none]!;
 
     return ansiFontStyles[this]!;
   }

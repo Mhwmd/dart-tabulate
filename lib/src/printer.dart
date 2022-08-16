@@ -68,7 +68,8 @@ class Printer {
       // Print row contents with word wrapping
       for (int k = 0; k < rowHeights[i]; ++k) {
         for (int j = 0; j < numColumns; ++j) {
-          renderRowInCell(stringBuffer, table, Pair(i, j), Pair(rowHeights[i], columnWidths[j]), numColumns, k);
+          renderRowInCell(stringBuffer, table, Pair(i, j),
+              Pair(rowHeights[i], columnWidths[j]), numColumns, k);
         }
         if (k + 1 < rowHeights[i]) stringBuffer.writeln(TermColor.reset);
       }
@@ -100,7 +101,9 @@ class Printer {
         }
       }
 
-      if (i + 1 < numRows) stringBuffer.writeln(TermColor.reset); // Don't add newline after last row
+      if (i + 1 < numRows)
+        stringBuffer
+            .writeln(TermColor.reset); // Don't add newline after last row
     }
   }
 
@@ -120,17 +123,20 @@ class Printer {
     var textHeight = '\n'.allMatches(wordWrappedText).length + 1;
     var paddingTop = theme.paddingTop!;
     if (theme.isShowBorderLeft!) {
-      applyElementStyle(stringBuffer, theme.borderLeftColor!, theme.borderLeftBackground!, {});
+      applyElementStyle(stringBuffer, theme.borderLeftColor!,
+          theme.borderLeftBackground!, {});
       stringBuffer.write(theme.borderLeft!);
       resetElementStyle(stringBuffer);
     }
 
-    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, {});
+    applyElementStyle(
+        stringBuffer, theme.fontColor!, theme.fontBackground!, {});
 
     if (rowIndex < paddingTop) {
       // Padding top
       stringBuffer.write(" " * columnWidth);
-    } else if (rowIndex >= paddingTop && (rowIndex <= (paddingTop + textHeight))) {
+    } else if (rowIndex >= paddingTop &&
+        (rowIndex <= (paddingTop + textHeight))) {
       // // Row contents
 
       // Retrieve padding left and right
@@ -148,7 +154,8 @@ class Printer {
         // Apply word wrapping to input text
         // Then display one word-wrapped line at a time within cell
         if (columnWidth > (paddingLeft + paddingRight)) {
-          wordWrappedText = wordWrap(text, columnWidth - paddingLeft - paddingRight);
+          wordWrappedText =
+              wordWrap(text, columnWidth - paddingLeft - paddingRight);
         } else {
           // Configured column width cannot be lower than (padding_left + padding_right)
           // This is a bad configuration
@@ -170,17 +177,21 @@ class Printer {
 
         // Print word-wrapped line
         line = line.trim();
-        var lineWithPaddingSize = line.stripAnsi.characters.length + paddingLeft + paddingRight;
+        var lineWithPaddingSize =
+            line.stripAnsi.characters.length + paddingLeft + paddingRight;
 
         switch (theme.textAlign!) {
           case TextAlign.left:
-            renderContentLeftAligned(stringBuffer, line, theme, lineWithPaddingSize, columnWidth);
+            renderContentLeftAligned(
+                stringBuffer, line, theme, lineWithPaddingSize, columnWidth);
             break;
           case TextAlign.center:
-            renderContentCenterAligned(stringBuffer, line, theme, lineWithPaddingSize, columnWidth);
+            renderContentCenterAligned(
+                stringBuffer, line, theme, lineWithPaddingSize, columnWidth);
             break;
           case TextAlign.right:
-            renderContentRightAligned(stringBuffer, line, theme, lineWithPaddingSize, columnWidth);
+            renderContentRightAligned(
+                stringBuffer, line, theme, lineWithPaddingSize, columnWidth);
             break;
         }
 
@@ -199,7 +210,8 @@ class Printer {
     if (index.second + 1 == numColumns) {
       // Print right border after last column
       if (theme.isShowBorderRight!) {
-        applyElementStyle(stringBuffer, theme.borderRightColor!, theme.borderRightBackground!, {});
+        applyElementStyle(stringBuffer, theme.borderRightColor!,
+            theme.borderRightBackground!, {});
         stringBuffer.write(theme.borderRight!);
         resetElementStyle(stringBuffer);
       }
@@ -207,7 +219,11 @@ class Printer {
   }
 
   static bool renderCellBorderTop(
-      StringBuffer stringBuffer, TableInternal table, Pair<int, int> index, Pair<int, int> dimension, int numColumns) {
+      StringBuffer stringBuffer,
+      TableInternal table,
+      Pair<int, int> index,
+      Pair<int, int> dimension,
+      int numColumns) {
     var cell = table.rowAt(index.first).cellAt(index.second);
     var theme = cell.theme;
     var columnWidth = dimension.second;
@@ -217,14 +233,16 @@ class Printer {
     var cornerBackgroundColor = theme.cornerTopLeftBackground!;
     var borderTop = theme.borderTop!;
 
-    if ((corner == "" && borderTop == "") || !theme.isShowBorderTop!) return false;
+    if ((corner == "" && borderTop == "") || !theme.isShowBorderTop!)
+      return false;
 
     applyElementStyle(stringBuffer, cornerColor, cornerBackgroundColor, {});
     stringBuffer.write(corner);
     resetElementStyle(stringBuffer);
 
     for (int i = 0; i < columnWidth; ++i) {
-      applyElementStyle(stringBuffer, theme.borderTopColor!, theme.borderTopBackground!, {});
+      applyElementStyle(
+          stringBuffer, theme.borderTopColor!, theme.borderTopBackground!, {});
       stringBuffer.write(borderTop);
       resetElementStyle(stringBuffer);
     }
@@ -243,7 +261,11 @@ class Printer {
   }
 
   static bool renderCellBorderBottom(
-      StringBuffer stringBuffer, TableInternal table, Pair<int, int> index, Pair<int, int> dimension, int numColumns) {
+      StringBuffer stringBuffer,
+      TableInternal table,
+      Pair<int, int> index,
+      Pair<int, int> dimension,
+      int numColumns) {
     var cell = table.rowAt(index.first).cellAt(index.second);
     var theme = cell.theme;
     var columnWidth = dimension.second;
@@ -262,7 +284,8 @@ class Printer {
     resetElementStyle(stringBuffer);
 
     for (int i = 0; i < columnWidth; ++i) {
-      applyElementStyle(stringBuffer, theme.borderBottomColor!, theme.borderBottomBackground!, {});
+      applyElementStyle(stringBuffer, theme.borderBottomColor!,
+          theme.borderBottomBackground!, {});
       stringBuffer.write(borderBottom);
       resetElementStyle(stringBuffer);
     }
@@ -280,8 +303,8 @@ class Printer {
     return true;
   }
 
-  static void applyElementStyle(
-      StringBuffer stringBuffer, Color foregroundColor, Color backgroundColor, Set<FontStyle> fontStyle) {
+  static void applyElementStyle(StringBuffer stringBuffer,
+      Color foregroundColor, Color backgroundColor, Set<FontStyle> fontStyle) {
     applyForegroundColor(stringBuffer, foregroundColor);
     applyBackground(stringBuffer, backgroundColor);
     for (var style in fontStyle) {
@@ -294,14 +317,20 @@ class Printer {
   }
 
   static void renderContentLeftAligned(
-      StringBuffer stringBuffer, String cellContent, TableTheme theme, int textWithPaddingSize, int columnWidth) {
+      StringBuffer stringBuffer,
+      String cellContent,
+      TableTheme theme,
+      int textWithPaddingSize,
+      int columnWidth) {
     // Apply font style
-    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, theme.fontStyle!);
+    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!,
+        theme.fontStyle!);
     stringBuffer.write(cellContent);
     // Only apply font_style to the font
     // Not the padding. So calling apply_element_style with font_style = {}
     resetElementStyle(stringBuffer);
-    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, {});
+    applyElementStyle(
+        stringBuffer, theme.fontColor!, theme.fontBackground!, {});
 
     if (textWithPaddingSize < columnWidth) {
       for (int j = 0; j < (columnWidth - textWithPaddingSize); ++j) {
@@ -325,12 +354,14 @@ class Printer {
       }
 
       // Apply font style
-      applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, theme.fontStyle!);
+      applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!,
+          theme.fontStyle!);
       stringBuffer.write(cellContent);
       // Only apply font_style to the font
       // Not the padding. So calling apply_element_style with font_style = {}
       resetElementStyle(stringBuffer);
-      applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, {});
+      applyElementStyle(
+          stringBuffer, theme.fontColor!, theme.fontBackground!, {});
 
       for (int j = 0; j < numSpaces / 2; ++j) {
         stringBuffer.write(" ");
@@ -342,13 +373,15 @@ class Printer {
       }
 
       // Apply font style
-      applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, theme.fontStyle!);
+      applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!,
+          theme.fontStyle!);
       stringBuffer.write(cellContent);
 
       // Only apply font_style to the font
       // Not the padding. So calling apply_element_style with font_style = {}
       resetElementStyle(stringBuffer);
-      applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, {});
+      applyElementStyle(
+          stringBuffer, theme.fontColor!, theme.fontBackground!, {});
 
       for (int j = 0; j < numSpaces - numSpacesBefore; ++j) {
         stringBuffer.write(" ");
@@ -370,19 +403,22 @@ class Printer {
     }
 
     // Apply font style
-    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, theme.fontStyle!);
+    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!,
+        theme.fontStyle!);
     stringBuffer.write(cellContent);
     // Only apply font_style to the font
     // Not the padding. So calling apply_element_style with font_style = {}
     resetElementStyle(stringBuffer);
-    applyElementStyle(stringBuffer, theme.fontColor!, theme.fontBackground!, {});
+    applyElementStyle(
+        stringBuffer, theme.fontColor!, theme.fontBackground!, {});
   }
 
   static void applyFontStyle(StringBuffer stringBuffer, FontStyle style) {
     stringBuffer.write(style.apply());
   }
 
-  static void applyForegroundColor(StringBuffer stringBuffer, Color foregroundColor) {
+  static void applyForegroundColor(
+      StringBuffer stringBuffer, Color foregroundColor) {
     stringBuffer.write(foregroundColor.apply());
   }
 

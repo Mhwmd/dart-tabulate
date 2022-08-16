@@ -32,9 +32,11 @@ class TermColor {
   /// Alert the terminal that the following characters were to be interpreted as a control sequence rather than as plain characters,
   static String get ansiEscape => "\u{1B}[";
 
-  static String buildTerm(int code) => isAnsiColorDisabled ? "" : "$ansiEscape${code}m";
+  static String buildTerm(int code) =>
+      isAnsiColorDisabled ? "" : "$ansiEscape${code}m";
 
-  static String colorize(String color, String text) => isAnsiColorDisabled ? text : "$color$text$reset}";
+  static String colorize(String color, String text) =>
+      isAnsiColorDisabled ? text : "$color$text$reset}";
 
   /// Reset all colors and options to terminal defaults.
   static String get reset => buildTerm(0);

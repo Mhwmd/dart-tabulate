@@ -102,32 +102,41 @@ class TableTheme {
     Color? columnSeparatorBackground,
   }) {
     return TableTheme(
-      borderBottomBackground: borderBottomBackground ?? this.borderBottomBackground,
+      borderBottomBackground:
+          borderBottomBackground ?? this.borderBottomBackground,
       borderBottom: borderBottom ?? this.borderBottom,
       borderBottomColor: borderBottomColor ?? this.borderBottomColor,
       borderLeft: borderLeft ?? this.borderLeft,
       borderLeftBackground: borderLeftBackground ?? this.borderLeftBackground,
       borderLeftColor: borderLeftColor ?? this.borderLeftColor,
       borderRight: borderRight ?? this.borderRight,
-      borderRightBackground: borderRightBackground ?? this.borderRightBackground,
+      borderRightBackground:
+          borderRightBackground ?? this.borderRightBackground,
       borderRightColor: borderRightColor ?? this.borderRightColor,
       borderTop: borderTop ?? this.borderTop,
       borderTopBackground: borderTopBackground ?? this.borderTopBackground,
       borderTopColor: borderTopColor ?? this.borderTopColor,
       columnSeparator: columnSeparator ?? this.columnSeparator,
-      columnSeparatorBackground: columnSeparatorBackground ?? this.columnSeparatorBackground,
+      columnSeparatorBackground:
+          columnSeparatorBackground ?? this.columnSeparatorBackground,
       columnSeparatorColor: columnSeparatorColor ?? this.columnSeparatorColor,
       cornerBottomLeft: cornerBottomLeft ?? this.cornerBottomLeft,
-      cornerBottomLeftBackground: cornerBottomLeftBackground ?? this.cornerBottomLeftBackground,
-      cornerBottomLeftColor: cornerBottomLeftColor ?? this.cornerBottomLeftColor,
+      cornerBottomLeftBackground:
+          cornerBottomLeftBackground ?? this.cornerBottomLeftBackground,
+      cornerBottomLeftColor:
+          cornerBottomLeftColor ?? this.cornerBottomLeftColor,
       cornerBottomRight: cornerBottomRight ?? this.cornerBottomRight,
-      cornerBottomRightBackground: cornerBottomRightBackground ?? this.cornerBottomRightBackground,
-      cornerBottomRightColor: cornerBottomRightColor ?? this.cornerBottomRightColor,
+      cornerBottomRightBackground:
+          cornerBottomRightBackground ?? this.cornerBottomRightBackground,
+      cornerBottomRightColor:
+          cornerBottomRightColor ?? this.cornerBottomRightColor,
       cornerTopLeft: cornerTopLeft ?? this.cornerTopLeft,
-      cornerTopLeftBackground: cornerTopLeftBackground ?? this.cornerTopLeftBackground,
+      cornerTopLeftBackground:
+          cornerTopLeftBackground ?? this.cornerTopLeftBackground,
       cornerTopLeftColor: cornerTopLeftColor ?? this.cornerTopLeftColor,
       cornerTopRight: cornerTopRight ?? this.cornerTopRight,
-      cornerTopRightBackground: cornerTopRightBackground ?? this.cornerTopRightBackground,
+      cornerTopRightBackground:
+          cornerTopRightBackground ?? this.cornerTopRightBackground,
       cornerTopRightColor: cornerTopRightColor ?? this.cornerTopRightColor,
       textAlign: textAlign ?? this.textAlign,
       fontBackground: fontBackground ?? this.fontBackground,
@@ -493,7 +502,8 @@ class TableTheme {
     }
 
     if (first.fontStyle != null) {
-      List<FontStyle> fontStyles = first.fontStyle!.union(second.fontStyle ?? {}).toList();
+      List<FontStyle> fontStyles =
+          first.fontStyle!.union(second.fontStyle ?? {}).toList();
       fontStyles.sort((a, b) => a.index.compareTo(b.index));
       result.fontStyle = fontStyles.toSet();
     } else {
@@ -738,13 +748,16 @@ class TableTheme {
     paddingTop = paddingBottom = 0;
     borderTop = borderBottom = "-";
     borderLeft = borderRight = "|";
-    isShowBorderLeft = isShowBorderRight = isShowBorderTop = isShowBorderBottom = true;
-    borderTopColor = borderTopBackground = borderBottomColor = borderBottomBackground =
-        borderLeftColor = borderLeftBackground = borderRightColor = borderRightBackground = Color.none;
+    isShowBorderLeft =
+        isShowBorderRight = isShowBorderTop = isShowBorderBottom = true;
+    borderTopColor = borderTopBackground = borderBottomColor =
+        borderBottomBackground = borderLeftColor = borderLeftBackground =
+            borderRightColor = borderRightBackground = Color.none;
     cornerTopLeft = cornerTopRight = cornerBottomLeft = cornerBottomRight = "+";
-    cornerTopLeftColor = cornerTopLeftBackground = cornerTopRightColor = cornerTopRightBackground =
-        cornerBottomLeftColor =
-            cornerBottomLeftBackground = cornerBottomRightColor = cornerBottomRightBackground = Color.none;
+    cornerTopLeftColor = cornerTopLeftBackground = cornerTopRightColor =
+        cornerTopRightBackground = cornerBottomLeftColor =
+            cornerBottomLeftBackground = cornerBottomRightColor =
+                cornerBottomRightBackground = Color.none;
     columnSeparator = "|";
     columnSeparatorColor = columnSeparatorBackground = Color.none;
   }

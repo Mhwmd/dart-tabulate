@@ -109,7 +109,8 @@ class Row extends Iterable<Cell> {
     int newlinesInWrappedText = '\n'.allMatches(wordWrappedText).length;
     int estimatedRowHeight = newlinesInWrappedText;
 
-    if (wordWrappedText.isNotEmpty && wordWrappedText[wordWrappedText.length - 1] != '\n') {
+    if (wordWrappedText.isNotEmpty &&
+        wordWrappedText[wordWrappedText.length - 1] != '\n') {
       estimatedRowHeight += 1;
     }
 

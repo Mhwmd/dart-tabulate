@@ -38,7 +38,8 @@ class TableInternal {
 
   Row operator [](int index) => rowAt(index);
 
-  void render(StringBuffer stringBuffer) => Printer.renderTable(stringBuffer, this);
+  void render(StringBuffer stringBuffer) =>
+      Printer.renderTable(stringBuffer, this);
 
   Pair<int, int> shape() {
     Pair<int, int> result = Pair(0, 0);

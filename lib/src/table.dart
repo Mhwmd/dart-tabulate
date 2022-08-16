@@ -16,9 +16,12 @@ class Table extends Iterable<Row> {
   }
 
   Table addRow(List<Object> cells) {
-    if (_isNotValidCellType(cells)) throw Exception("Unsupported type used supported types are only $_supportedTypes");
+    if (_isNotValidCellType(cells))
+      throw Exception(
+          "Unsupported type used supported types are only $_supportedTypes");
     if (_rows == 0) _cols = cells.length;
-    final List<String> cellStrings = List.filled(cells.length < _cols ? _cols : cells.length, "");
+    final List<String> cellStrings =
+        List.filled(cells.length < _cols ? _cols : cells.length, "");
 
     for (int i = 0; i < cells.length; i++) {
       Object cell = cells[i];

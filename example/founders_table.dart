@@ -24,7 +24,11 @@ void main() {
 
   table.columnAt(0).theme.setTextAlign(TextAlign.center);
 
-  table[4][2].theme.setFontBackground(Color.red).setFontColor(Color.grey).setFontStyle({FontStyle.crossed});
+  table[4][2]
+      .theme
+      .setFontBackground(Color.red)
+      .setFontColor(Color.grey)
+      .setFontStyle({FontStyle.crossed});
 
   print(table);
 }
