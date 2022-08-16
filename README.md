@@ -27,10 +27,14 @@
     *   [Text Alignment](#text-alignment)
     *   [Font Styles](#font-styles)
     *   [Cell Colors](#cell-colors)
-    *   [Borders and Corners](#borders-and-corners)
-    *   [Range-based Iteration](#range-based-iteration)
-    *   [Nested Tables](#nested-tables)
-    *   [UTF-8 Support](#utf-8-support)
+
+[comment]: <> (    *   [Borders and Corners]&#40;#borders-and-corners&#41;)
+
+[comment]: <> (    *   [Range-based Iteration]&#40;#range-based-iteration&#41;)
+
+[comment]: <> (    *   [Nested Tables]&#40;#nested-tables&#41;)
+
+[comment]: <> (    *   [UTF-8 Support]&#40;#utf-8-support&#41;)
 
 ## Description
 
